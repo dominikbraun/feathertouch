@@ -1,0 +1,274 @@
+* {
+    font-family: 'Open Sans', arial, sans-serif;
+}
+
+.bg-primary {
+    background: #c8e7fd !important;
+}
+
+.bg-light {
+    background: #f7f7f9 !important;
+}
+
+.bg-dark {
+    background: #21252B !important;
+}
+
+.bg-success {
+    background: #16d39a !important;
+}
+
+.bg-danger {
+    background: #fe5d70 !important;
+}
+
+.bg-mint {
+    background: #D6FCED !important;
+}
+
+.bg-sand {
+    background: #FDEEE6 !important;
+}
+
+.badge {
+    cursor: default;
+}
+
+.badge-primary {
+    color: #21252B;
+    background: #c8e7fd !important;
+}
+
+.badge-mint {
+    background: #D6FCED !important;
+}
+
+.text-dark {
+    color: #21252B !important;
+}
+
+.text-mint {
+    color: #9DCCE8;
+}
+
+.text-serif {
+    font-family: 'Playfair Display', arial, sans-serif;
+}
+
+.text-sans-serif {
+    font-family: 'Oswald', arial, sans-serif;
+}
+
+.text-cookie {
+    font-family: 'Cookie', cursive;
+}
+
+.text-xs {
+    font-size: .8em;
+}
+
+.text-sm {
+    font-size: .90em;
+}
+
+.text-md {
+    font-size: .97em;
+}
+
+.text-md.text-cookie {
+    font-size: 1.55em;
+}
+
+.text-lg {
+    font-size: 1.25em;
+}
+
+.text-lg.text-serif {
+    font-size: 1.5em;
+    line-height: 1.25em;
+}
+
+.text-xl {
+    font-size: 2.5em;
+}
+
+.text-xl.text-serif {
+    font-size: 2.35em;
+}
+
+.text-xxl {
+    font-size: 2.75em;
+}
+
+.text-500 {
+    font-weight: 500;
+}
+
+.text-600 {
+    font-weight: 600;
+}
+
+.border-top {
+    border-top: 2px solid #21252B !important;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #21252B !important;
+}
+
+.border-bottom-light {
+    border-bottom: 1px solid #EDEDED;
+}
+
+.shadow-sm {
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .075) !important;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.has-background-image {
+    min-height: 190px;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.btn {
+    border-width: 2px;
+}
+
+.btn:active, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-success {
+    background-color: #16d39a !important;
+    border-color: #16d39a !important;
+}
+
+.btn-success:hover {
+    background-color: #19C687 !important;
+    border-color: #19C687 !important;
+}
+
+.btn-light {
+    background-color: #f7f7f9 !important;
+    border-color: #f7f7f9 !important;
+}
+
+.btn-light:hover {
+    background-color: #F2F2F4 !important;
+    border-color: #F2F2F4 !important;
+}
+
+ol {
+    list-style: none;
+    counter-reset: c;
+}
+
+ol li {
+    counter-increment: c;
+}
+
+ol li:before {
+    content: counter(c) ".";
+    color: #21252B;
+    font-family: 'Playfair Display', arial, sans-serif;
+    font-size: 1.4em;
+    padding-right: .78rem;
+}
+
+a.static {
+    text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 980px;
+    }
+
+    .article {
+        max-width: 740px;
+    }
+}
+
+.bg-broken-primary {
+    background: #ffffff;
+    background: -moz-linear-gradient(left, #ffffff 14.1%, #c8e7fd 14.1%);
+    background: -webkit-linear-gradient(left, #ffffff 14.1%, #c8e7fd 14.1%);
+    background: linear-gradient(to right, #ffffff 14.1%, #c8e7fd 14.1%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+}
+
+.bg-broken-mint {
+    background: #ffffff;
+    background: -moz-linear-gradient(left, #ffffff 14.1%, #d6fced 14.1%);
+    background: -webkit-linear-gradient(left, #ffffff 14.1%, #d6fced 14.1%);
+    background: linear-gradient(to right, #ffffff 14.1%, #d6fced 14.1%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+}
+
+@media (min-width: 768px) {
+    .bg-broken-primary {
+        background: #ffffff;
+        background: -moz-linear-gradient(left, #ffffff 25.1%, #c8e7fd 25.1%);
+        background: -webkit-linear-gradient(left, #ffffff 25.1%, #c8e7fd 25.1%);
+        background: linear-gradient(to right, #ffffff 25.1%, #c8e7fd 25.1%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+    }
+
+    .bg-broken-mint {
+        background: #ffffff;
+        background: -moz-linear-gradient(left, #ffffff 25.1%, #d6fced 25.1%);
+        background: -webkit-linear-gradient(left, #ffffff 25.1%, #d6fced 25.1%);
+        background: linear-gradient(to right, #ffffff 25.1%, #d6fced 25.1%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+    }
+}
+
+.article h2 {
+    font-family: 'Oswald', arial, sans-serif;
+    font-size: 1.5em;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.article p,
+.article li {
+    font-size: .97em;
+}
+
+.article p {
+    margin-bottom: 1.5rem
+}
+
+.article img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+pre {
+    background: #f7f7f9 !important;
+    padding: 1.25rem 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+code {
+    color: #21252B;
+    background: #EDF7FF;
+    padding: 0.1rem 0.25rem;
+}
+
+a.fab:active, a.fab:hover,
+a.fas:active, a.fas:hover,
+a.far:active, a.far:hover {
+    background: #fff;
+    text-decoration: none;
+}
+
+.bmac-logo {
+    max-width: 21px;
+}

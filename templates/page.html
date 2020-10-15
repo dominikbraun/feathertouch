@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{.Page.Title}} &ndash; {{.Meta.Title}}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="author" content="{{.Meta.Author}}" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 Days" />
+        <meta name="title" content="{{.Page.Title}} &ndash; {{.Meta.Title}}" />
+        <meta name="description" content="{{.Page.Description}}" />
+        <meta property="og:url" content="{{.Meta.Base}}{{.Page.Href}}">
+        <meta property="og:title" content="{{.Page.Title}} &ndash; {{.Meta.Title}}">
+        <meta property="og:description" content="{{.Page.Description}}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{.Meta.Title}}" />
+        <meta property="og:image" content="{{.Meta.Base}}/static/img/{{.Page.Img}}">
+        <meta property="og:image:secure_url" content="{{.Meta.Base}}/static/img/{{.Page.Img}}">
+        <meta property="og:image:type" content="image/webp">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="{{.Page.Title}} &ndash; {{.Meta.Title}}">
+        <meta name="twitter:description" content="{{.Page.Description}}">
+        <meta name="twitter:image" content="{{.Meta.Base}}/static/img/{{.Page.Img}}">
+        <link rel="canonical" href="{{.Meta.Base}}{{.Page.Href}}" />
+        <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;500&family=Cookie&display=swap"
+              rel="stylesheet">
+        <link href="/assets/css/feathertouch.css" rel="stylesheet" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechPage",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{.Meta.Base}}{{.Page.Href}}"
+            },
+            "headline": "{{.Page.Title}}",
+            "image": [
+                "{{.Meta.Base}}/static/img/{{.Page.Img}}"
+            ],
+            "datePublished": "{{.Page.Date}}",
+            "author": {
+                "@type": "Person",
+                "name": "{{.Meta.Author}}"
+            }
+        }
+
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-2">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <div class="bg-white text-dark text-sans-serif text-uppercase text-lg">
+                        {{.Meta.Title}}
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="navbar-nav ml-auto text-sm text-uppercase">
+
+                        {{range $item := .Nav.Items}}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{$item.Target}}" rel="noopener">
+                                    {{$item.Label}}
+                                </a>
+                            </li>
+                        {{end}}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bg-light">
+            <div class="container">
+                <p class="py-4 text-xs text-600">{{.Meta.Subtitle}}</p>
+            </div>
+        </div>
+        <div class="">
+            <div class="container py-5">
+                <div class="row mx-0 mb-5 py-4 bg-broken-primary">
+                    <div class="col-12 col-md-5 p-0">
+                        <img class="img img-fluid" src="/static/img/{{.Page.Img}}" alt="{{.Page.Description}}" />
+                    </div>
+                    <div class="col-12 col-md-7 px-3 my-auto text-center">
+                        <h1 class="text-serif text-dark text-xxl text-500 mb-0 pt-4 pt-md-0 pb-4">
+                            {{.Page.Title}}
+                        </h1>
+                        <p class="text-dark text-sm text-500 mb-4">
+                            Posted on {{.Page.Date.Format "Jan 2 2006"}} &mdash; Photo: {{.Page.Credit}}
+                        </p>
+                        <p class="text-dark text-sm text-600">
+                            {{.Page.Description}}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-dark text-md text-justify mx-auto Page">
+                    {{.Page.Content}}
+                </div>
+            </div>
+        </div>
+        <div class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-xl-3">
+                        <h4 class="text-sans-serif text-lg text-uppercase mb-0 pt-4 pb-3">Share this Page</h4>
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-9 text-md-right">
+                        <a class="fab fa-reddit-alien text-lg text-dark mx-0 px-3 py-4"
+                           href="https://reddit.com/submit?url={{.Meta.Base}}{{.Page.Href}}&title={{.Page.Title}}"
+                           target="_blank" rel="noopener"></a><a
+                                class="fab fa-twitter text-lg text-dark mx-0 px-3 py-4"
+                                href="https://twitter.com/home?status={{.Meta.Base}}{{.Page.Href}}"
+                                target="_blank" rel="noopener"></a><a
+                                class="fab fa-facebook text-lg text-dark mx-0 px-3 py-4"
+                                href="https://www.facebook.com/sharer/sharer.php?u={{.Meta.Base}}{{.Page.Href}}"
+                                target="_blank" rel="noopener"></a><a
+                                class="fab fa-whatsapp text-lg text-dark mx-0 px-3 py-4"
+                                href="https://api.whatsapp.com/send?text={{.Meta.Base}}{{.Page.Href}}"
+                                target="_blank" rel="noopener"></a><a
+                                class="far fa-envelope text-lg text-dark mx-0 px-3 py-4"
+                                href="mailto:?subject={{.Page.Title}}&body={{.Meta.Base}}{{.Page.Href}}"
+                                target="_blank" rel="noopener"></a><a
+                                class="far fa-file-pdf text-lg text-dark mx-0 px-3 py-4"
+                                href="javascript:window.print();"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{if .Page.Related}}
+            <div class="">
+                <div class="container py-5">
+                    <div class="bg-broken-mint px-0 px-md-5 py-3">
+                        <h2 class="text-serif text-xl text-500 py-4">Related Pages</h2>
+                        <ol class="pt-3 pb-4">
+
+                            {{range $page := .Page.Related}}
+                                <li class="text-lg text-serif">
+                                    <a class="text-serif text-dark" href="{{$page.Route}}/{{$page.ID}}">
+                                        {{$page.Title}}
+                                    </a>
+                                </li>
+                            {{end}}
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        {{end}}
+        <footer class="bg-dark">
+            <div class="container py-5">
+                <p class="text-sm text-white text-center">
+                    <span class="text-sans-serif text-uppercase">&copy; {{.Meta.Author}}</span>
+                </p>
+                <p class="text-sm text-white text-center">
+
+                    /
+                    {{range $item := .Nav.Items}}
+                        <a class="text-white px-2" href="{{$item.Target}}" rel="noopener">{{$item.Label}}</a>/
+                    {{end}}
+
+                </p>
+                <p class="text-center mb-0 pt-4 pb-2">
+                    <a href="https://github.com/verless/verless" class="static" rel="noopener">
+					<span class="bg-white text-sans-serif text-uppercase text-dark px-3 py-2">
+						Built with verless
+					</span>
+                    </a>
+                </p>
+            </div>
+        </footer>
+        <script src="https://kit.fontawesome.com/a03d5ce0e2.js" rel="preconnect" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            let navbarExpanded = false;
+
+            document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', () => {
+                navbarExpanded = !navbarExpanded
+                document.getElementById('navbar-menu').classList.toggle('show', navbarExpanded)
+            })
+        </script>
+    </body>
+</html>

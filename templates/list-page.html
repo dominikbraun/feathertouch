@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Articles in {{.Route}} &ndash; {{.Meta.Title}}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="author" content="{{.Meta.Author}}" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 Days" />
+        <meta name="title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}" />
+        <meta name="description" content="{{.Meta.Subtitle}}" />
+        <meta property="og:url" content="{{.Meta.Base}}{{.Route}}">
+        <meta property="og:title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}">
+        <meta property="og:description" content="{{.Meta.Subtitle}}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{.Meta.Title}}" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}">
+        <meta name="twitter:description" content="{{.Meta.Subtitle}}">
+        <link rel="canonical" href="{{.Meta.Base}}{{.Route}}" />
+        <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;500&display=swap"
+              rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-2">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <div class="bg-white text-dark text-sans-serif text-uppercase text-lg">
+                        {{.Meta.Title}}
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="navbar-nav ml-auto text-sm text-uppercase">
+
+                        {{range $item := .Nav.Items}}
+                            <li class="nav-item active" rel="noopener">
+                                <a class="nav-link" href="{{$item.Target}}">
+                                    {{$item.Label}}
+                                </a>
+                            </li>
+                        {{end}}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bg-light">
+            <div class="container">
+                <p class="py-4 text-xs text-600">{{.Meta.Subtitle}}</p>
+            </div>
+        </div>
+        <div class="">
+            <div class="container py-4">
+                <h2 class="text-serif text-xl text-500 py-2 py-md-4">Articles in {{.Route}}</h2>
+
+                {{range $page := .Pages}}
+                    <div class="row py-4 border-bottom-light">
+                        <div class="col-12 col-md-2 my-3 my-md-4 d-none d-md-block pr-md-4">
+                            <p class="text-sans-serif text-dark text-lg border-top pt-2">
+                                {{$page.Date.Format "Jan 2"}}
+                            </p>
+
+                            {{range $tag := .Tags}}
+                                <span class="badge badge-primary text-xs mb-1 px-2 py-3 rounded-0">{{$tag}}</span>
+                            {{end}}
+
+                        </div>
+                        <div class="col-12 col-md-4 my-3 my-md-4 px-0 has-background-image"
+                             style="background-image: url('/static/img/{{.Img}}')">
+                            <a class="d-block w-100 h-100" href="{{$page.Route}}/{{$page.ID}}"></a>
+                        </div>
+                        <div class="col-12 col-md-6 my-3 my-md-4 pl-md-4">
+                            <a class="text-dark" href="{{$page.Route}}/{{$page.ID}}">
+                                <h3 class="text-serif text-dark text-lg py-2">
+                                    {{$page.Title}}
+                                </h3>
+                            </a>
+                            <p class="text-md">
+                                {{$page.Description}}
+                            </p>
+                            <p class="text-md">
+                                <a class="btn btn-light text-sm rounded-0" href="{{$page.Route}}/{{$page.ID}}">
+                                    read more
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                {{end}}
+
+            </div>
+        </div>
+        <footer class="bg-dark">
+            <div class="container py-5">
+                <p class="text-sm text-white text-center">
+                    <span class="text-sans-serif text-uppercase">&copy; {{.Meta.Author}}</span>
+                </p>
+                <p class="text-sm text-white text-center">
+
+                    /
+                    {{range $item := .Nav.Items}}
+                        <a class="text-white px-2" href="{{$item.Target}}" rel="noopener">{{$item.Label}}</a>/
+                    {{end}}
+
+                </p>
+                <p class="text-center mb-0 pt-4 pb-2">
+                    <a href="https://github.com/verless/verless" class="static" rel="noopener">
+					<span class="bg-white text-sans-serif text-uppercase text-dark px-3 py-2">
+						Built with verless
+					</span>
+                    </a>
+                </p>
+            </div>
+        </footer>
+        <script src="https://kit.fontawesome.com/a03d5ce0e2.js" rel="preconnect" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            let navbarExpanded = false;
+            document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', () => {
+                navbarExpanded = !navbarExpanded
+                document.getElementById('navbar-menu').classList.toggle('show', navbarExpanded)
+            })
+        </script>
+    </body>
+</html>
