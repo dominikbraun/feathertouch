@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Articles in {{.Route}} &ndash; {{.Meta.Title}}</title>
+        <title>Home &ndash; {{.Meta.Title}}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="author" content="{{.Meta.Author}}" />
         <meta name="robots" content="index, follow" />
         <meta name="revisit-after" content="1 Days" />
-        <meta name="title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}" />
+        <meta name="title" content="Home &ndash; {{.Meta.Title}}" />
         <meta name="description" content="{{.Meta.Subtitle}}" />
         <meta property="og:url" content="{{.Meta.Base}}{{.Route}}">
-        <meta property="og:title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}">
+        <meta property="og:title" content="Home &ndash; {{.Meta.Title}}">
         <meta property="og:description" content="{{.Meta.Subtitle}}">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="{{.Meta.Title}}" />
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Articles in {{.Route}} &ndash; {{.Meta.Title}}">
+        <meta name="twitter:title" content="Home &ndash; {{.Meta.Title}}">
         <meta name="twitter:description" content="{{.Meta.Subtitle}}">
         <link rel="canonical" href="{{.Meta.Base}}{{.Route}}" />
         <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
@@ -36,15 +36,15 @@
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbar-menu" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="navbar-nav ml-auto text-sm text-uppercase">
 
                         {{range $item := .Nav.Items}}
-                            <li class="nav-item active" rel="noopener">
-                                <a class="nav-link" href="{{$item.Target}}">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{$item.Target}}" rel="noopener">
                                     {{$item.Label}}
                                 </a>
                             </li>
@@ -61,7 +61,7 @@
         </div>
         <div class="">
             <div class="container py-4">
-                <h2 class="text-serif text-xl text-500 py-2 py-md-4">Articles in {{.Route}}</h2>
+                <h2 class="text-serif text-xl text-500 py-2 py-md-4">My Articles</h2>
 
                 {{range $page := .Pages}}
                     <div class="row py-4 border-bottom-light">
@@ -76,7 +76,7 @@
 
                         </div>
                         <div class="col-12 col-md-4 my-3 my-md-4 px-0 has-background-image"
-                             style="background-image: url('/static/img/{{.Img}}')">
+                             style="background-image: url('/static/img/{{$page.Img}}')">
                             <a class="d-block w-100 h-100" href="{{$page.Route}}/{{$page.ID}}"></a>
                         </div>
                         <div class="col-12 col-md-6 my-3 my-md-4 pl-md-4">
@@ -85,7 +85,7 @@
                                     {{$page.Title}}
                                 </h3>
                             </a>
-                            <p class="text-md">
+                            <p class="text-md text-justify">
                                 {{$page.Description}}
                             </p>
                             <p class="text-md">
