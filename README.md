@@ -2,6 +2,10 @@
 
 Feathertouch is a light and elegant [verless](github.com/verless/verless) theme.
 
+## Demo
+
+A slightly customized version of Feathertouch is used for [dominikbraun.io](https://dominikbraun.io).
+
 ## Use it
 
 1. [Download the ZIP](https://github.com/dominikbraun/feathertouch/archive/main.zip) and extract it into your project's `themes` directory
