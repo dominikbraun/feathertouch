@@ -6,7 +6,8 @@ Feathertouch is a light and elegant [verless](github.com/verless/verless) theme.
 
 1. [Download the ZIP](https://github.com/dominikbraun/feathertouch/archive/main.zip) and extract it into your project's `themes` directory
 or clone this repository into `themes`.
-2. Enable this theme in your `verless.yml`:
+2. Set the page type of your index file to `startpage` (see [Assumptions](#assumptions)).
+3. Enable this theme in your `verless.yml`:
 
 ```yaml
 theme: feathertouch
