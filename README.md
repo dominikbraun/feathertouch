@@ -1,6 +1,6 @@
 # Feathertouch
 
-Feathertouch is a light and elegant [verless](github.com/verless/verless) theme.
+Feathertouch is a light and elegant [verless](https://github.com/verless/verless) theme.
 
 ## Demo
 
